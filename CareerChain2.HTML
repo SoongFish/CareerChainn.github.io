@@ -21,10 +21,6 @@
 <h2>Welcome to CarrerChain!</h2>
 <ul>
   <li>Contract Address: <span id="contractAddr" /></span></li>
-  <li>My Account Address: <span id="accountAddr"></span></li>
-  
-  <li>컨트랙트에 저장된 값: <span id="storedData"></span>
-    <button onclick="getValue()">새로고침</button> (Block Count: <span id="lastBlock"></span>)</li>
 	
   <h4>Input Info</h4>
   <li>Identification Number<input id="idnum" type="text"></li>
@@ -238,7 +234,7 @@ function setValue()
   var certificate = document.getElementById('certificate').value;
   var writer = document.getElementById('writer').value;
   var txid;
-  CareerChain.set(idnum, name, college, GPA, volunteer, certificate, writer, function(e,r)
+  CareerChain.Add_info(idnum, name, college, GPA, volunteer, certificate, writer, function(e,r)
   {
     document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
     txid = r;
