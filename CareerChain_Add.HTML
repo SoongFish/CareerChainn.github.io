@@ -37,17 +37,20 @@
 <!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script -->
 <script>
 var contractAddress = '0x678169f3b4a351e8f5144a6d1d9557e53a783a90';
-var abi = [
+var abi = 
+[
 	{
 		"constant": true,
-		"inputs": [
+		"inputs": 
+		[
 			{
 				"name": "",
 				"type": "uint256"
 			}
 		],
 		"name": "info_list",
-		"outputs": [
+		"outputs": 
+		[
 			{
 				"name": "idnum",
 				"type": "string"
@@ -83,14 +86,16 @@ var abi = [
 	},
 	{
 		"constant": true,
-		"inputs": [
+		"inputs": 
+		[
 			{
 				"name": "_order",
 				"type": "uint256"
 			}
 		],
 		"name": "Get_info",
-		"outputs": [
+		"outputs": 
+		[
 			{
 				"name": "idnum",
 				"type": "string"
@@ -126,7 +131,8 @@ var abi = [
 	},
 	{
 		"constant": false,
-		"inputs": [
+		"inputs": 
+		[
 			{
 				"name": "_idnum",
 				"type": "string"
@@ -157,7 +163,8 @@ var abi = [
 			}
 		],
 		"name": "Add_info",
-		"outputs": [
+		"outputs": 
+		[
 			{
 				"name": "",
 				"type": "uint256"
@@ -205,18 +212,6 @@ function getLink(addr)
   return '<a target="_blank" href=https://testnet.etherscan.io/address/' + addr + '>' + addr +'</a>';
 }
 
-function getValue()
-{
-  CareerChain.Get_info(0, function(e,r)
-  {
-    document.getElementById('storedData').innerHTML=r.toNumber();
-  });
-  web3.eth.getBlockNumber(function(e,r)
-  {
-    document.getElementById('lastBlock').innerHTML = r;
-  });
-}
-
 function setValue()
 {
   var idnum = document.getElementById('idnum').value;
@@ -229,7 +224,7 @@ function setValue()
   var txid;
   CareerChain.Add_info(idnum, name, college, GPA, volunteer, certificate, writer, function(e,r)
   {
-    document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
+    document.getElementById('result').innerHTML = 'Success - Transaction id : ' + r;
     txid = r;
   });
 }
