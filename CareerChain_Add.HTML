@@ -224,14 +224,7 @@ function setValue()
   var txid;
   CareerChain.Add_info(idnum, name, college, GPA, volunteer, certificate, writer, function(e,r)
   {
-	if (r == 'undefined')
-	{
-		document.getElementById('result').innerHTML = 'Failed - Transaction is rejected';
-	}
-    else
-	{
-		document.getElementById('result').innerHTML = 'Success - Transaction id : ' + r;
-	}
+	document.getElementById('result').innerHTML = 'Transaction id : ' + r;
   });
 }
 
