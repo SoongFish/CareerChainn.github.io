@@ -234,8 +234,26 @@ function setValue()
   var certificate = document.getElementById('certificate').value;
   var writer = document.getElementById('writer').value;
   var txid;
-  CareerChain.Add_info(idnum, name, college, GPA, volunteer, certificate, writer, function(e,r){console.log(r);});
-  
+  CareerChain.Add_info(idnum, name, college, GPA, volunteer, certificate, writer, function(e,r)
+  {
+    document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
+    txid = r;
+  });
+  var filter = web3.eth.filter('latest');
+  filter.watch(function(e, r)
+  {
+    getValue();
+    web3.eth.getTransaction(txid, function(e,r)
+	{
+      if (r != null && r.blockNumber > 0)
+	  {
+        document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
+        document.getElementById('pending').style.cssText ='color:green;';
+        document.getElementById('storedData').style.cssText ='color:green; font-size:300%;';
+        filter.stopWatching();
+      }
+   });
+ });
 }
 
 </script>
