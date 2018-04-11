@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.3/milligram.min.css">
-  <title>Simple Storage Dapp 예제 </title>
+  <title>CareerChain</title>
   <style>
     body {margin-left:50px;}
     #storedData {font-size:300%; margin-right:10px;}
@@ -14,9 +14,6 @@
 <body>
 <h3>Welcome to CarrerChain!</h3>
 <ul>
-  <li>Contract Address: <span id="contractAddr" /></span></li>
-
-  <li>My Account Address: <span id="accountAddr"></span></li>
   <li>컨트랙트에 저장된 값: <span id="storedData"></span>
     <button onclick="getValue()">새로고침</button> (Block Count: <span id="lastBlock"></span>)</li>
   <li><input id="newValue" type="text"><button onclick="setValue()">새 값으로 저장하기</button>
@@ -24,28 +21,157 @@
   <li>새 값을 저장한 후 팬딩 트랜잭션이 블록에 포함되면 자동으로 페이지가 업데이트될 것입니다.</li>
 </ul>
 
-컨트랙트 소스
-<script src="https://gist.github.com/atomrigs/7c633570496b79623bed5d1286f93f3a.js"></script>
-
-HTML 소스<br>
-<a href="https://github.com/arrie33/arrie33.github.io/blob/master/simplestorage.html">https://github.com/arrie33/arrie33.github.io/blob/master/simplestorage.html</a>;
-<br><br>
 
 
 </body>
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
 <!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script -->
 <script>
-var contractAddress = '0x9101df01fd6c7311b6f32dfc8e7a7c32c28e4bb4';
-var abi = [{"constant":false,"inputs":[{"name":"x","type":"uint256"}],"name":"set","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"}];
-var simpleStorageContract;
-var simpleStorage;
-window.addEventListener('load', function() {
+var contractAddress = '0x678169f3b4a351e8f5144a6d1d9557e53a783a90';
+var abi = [
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "info_list",
+		"outputs": [
+			{
+				"name": "idnum",
+				"type": "string"
+			},
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "college",
+				"type": "string"
+			},
+			{
+				"name": "GPA",
+				"type": "string"
+			},
+			{
+				"name": "volunteer",
+				"type": "string"
+			},
+			{
+				"name": "certificate",
+				"type": "string"
+			},
+			{
+				"name": "writer",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"type": "function",
+		"stateMutability": "view"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_order",
+				"type": "uint256"
+			}
+		],
+		"name": "Get_info",
+		"outputs": [
+			{
+				"name": "idnum",
+				"type": "string"
+			},
+			{
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"name": "college",
+				"type": "string"
+			},
+			{
+				"name": "GPA",
+				"type": "string"
+			},
+			{
+				"name": "volunteer",
+				"type": "string"
+			},
+			{
+				"name": "certificate",
+				"type": "string"
+			},
+			{
+				"name": "writer",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"type": "function",
+		"stateMutability": "view"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_idnum",
+				"type": "string"
+			},
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_college",
+				"type": "string"
+			},
+			{
+				"name": "_GPA",
+				"type": "string"
+			},
+			{
+				"name": "_volunteer",
+				"type": "string"
+			},
+			{
+				"name": "_certificate",
+				"type": "string"
+			},
+			{
+				"name": "_writer",
+				"type": "string"
+			}
+		],
+		"name": "Add_info",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"type": "function",
+		"stateMutability": "nonpayable"
+	}
+];
+var Contract;
+var CareerChain;
+
+window.addEventListener('load', function()
+{
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-  if (typeof web3 !== 'undefined') {
+  if (typeof web3 !== 'undefined')
+  {
     // Use Mist/MetaMask's provider
     window.web3 = new Web3(web3.currentProvider);
-  } else {
+  } 
+  else 
+  {
     console.log('No web3? You should consider trying MetaMask!')
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
@@ -53,38 +179,53 @@ window.addEventListener('load', function() {
   // Now you can start your app & access web3 freely:
   startApp();
 });
-function startApp() {
-  simpleStorageContract = web3.eth.contract(abi);
-  simpleStorage = simpleStorageContract.at(contractAddress);
+
+function startApp()
+{
+  Contract = web3.eth.contract(abi);
+  CareerChain = Contract.at(contractAddress);
   document.getElementById('contractAddr').innerHTML = getLink(contractAddress);
-  web3.eth.getAccounts(function(e,r){
-    document.getElementById('accountAddr').innerHTML = getLink(r[0]);
+  web3.eth.getAccounts(function(e,r)
+  {
+	document.getElementById('accountAddr').innerHTML = getLink(r[0]);
   });
   getValue();
 }
-function getLink(addr) {
+
+function getLink(addr)
+{
   return '<a target="_blank" href=https://testnet.etherscan.io/address/' + addr + '>' + addr +'</a>';
 }
-function getValue() {
-  simpleStorage.get(function(e,r){
+
+function getValue()
+{
+  CareerChain.get(function(e,r)
+  {
     document.getElementById('storedData').innerHTML=r.toNumber();
   });
-  web3.eth.getBlockNumber(function(e,r){
+  web3.eth.getBlockNumber(function(e,r)
+  {
     document.getElementById('lastBlock').innerHTML = r;
   });
 }
-function setValue() {
+
+function setValue()
+{
   var newValue = document.getElementById('newValue').value;
-  var txid
-  simpleStorage.set(newValue, function(e,r){
+  var txid;
+  CareerChain.set(newValue, function(e,r)
+  {
     document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
     txid = r;
   });
   var filter = web3.eth.filter('latest');
-  filter.watch(function(e, r) {
+  filter.watch(function(e, r)
+  {
     getValue();
-    web3.eth.getTransaction(txid, function(e,r){
-      if (r != null && r.blockNumber > 0) {
+    web3.eth.getTransaction(txid, function(e,r)
+	{
+      if (r != null && r.blockNumber > 0)
+	  {
         document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
         document.getElementById('pending').style.cssText ='color:green;';
         document.getElementById('storedData').style.cssText ='color:green; font-size:300%;';
