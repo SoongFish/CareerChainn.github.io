@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.3/milligram.min.css">
-  <title>CareerChain - Add Information</title>
+  <title>CareerChain - Get Information</title>
   <style>
     body {margin-left:45px; margin-top:30px;}
     #idnum {width: 200px; margin-left:10px; text-align:center;}
@@ -12,16 +12,17 @@
   </style>
 </head>
 <body>
-<h2>Welcome to CareerChain!</h2>
+<h2>CareerChain - Get Information</h2>
 <ul>
-  <h4>Search Info</h4>
   <br>
   <li>Identification Number<input id="idnum" type="text"></li>
-  <li>Name<input id="name" type="text" style="margin-left:122px"></li>
+  <li>Name<input id="name" type="text" style="margin-left:122px">
+  <button onclick='top.location="javascript:location.reload()"' style="margin-left:25px">Clear</button></li>
   <br>
-  <button onclick="getValue()" style="margin-left:135px">Search</button>
-      <div id="result"></div>
-  </li>
+  <button onclick="getValue()" style="margin-left:70px">Search</button>
+  <button onclick="location.href='CareerChain_Main.HTML'" style="margin-left:15px">Back</button>
+  <br>
+  <div id="result"></div>
 </ul>
 
 </body>
