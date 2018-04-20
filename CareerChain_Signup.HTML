@@ -156,8 +156,8 @@ var abi =
 		"type": "function"
 	}
 ];
-var Contract;
-var CareerChain;
+var Contract_L;
+var CareerChain_L;
 
 window.addEventListener('load', function()
 {
@@ -179,8 +179,8 @@ window.addEventListener('load', function()
 
 function startApp()
 {
-	Contract = web3.eth.contract(abi);
-	CareerChain = Contract.at(contractAddress);
+	Contract_L = web3.eth.contract(abi);
+	CareerChain_L = Contract_L.at(contractAddress);
 	document.getElementById('contractAddr').innerHTML = getLink(contractAddress);
 	web3.eth.getAccounts(function(e,r)
 	{
@@ -198,7 +198,7 @@ function Check()
 	var id = document.getElementById('id').value;
 	var pwd = document.getElementById('pwd').value;
 	var name = document.getElementById('name').value;
-	CareerChain.Id_duplication(id, function(e,r)
+	CareerChain_L.Id_duplication(id, function(e,r)
 	{
 		if (r)
 		{
@@ -206,7 +206,7 @@ function Check()
 		}
 		else
 		{
-			CareerChain.Sign_up(id, pwd, name, function(e,r)
+			CareerChain_L.Sign_up(id, pwd, name, function(e,r)
 			{
 				document.getElementById('result').innerHTML = 'Thanks you for signing up! Transaction id : ' + r;
 			});

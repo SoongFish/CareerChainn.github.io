@@ -153,8 +153,8 @@ var abi =
 		"type": "function"
 	}
 ];
-var Contract;
-var CareerChain;
+var Contract_L;
+var CareerChain_L;
 
 window.addEventListener('load', function()
 {
@@ -176,8 +176,8 @@ window.addEventListener('load', function()
 
 function startApp()
 {
-	Contract = web3.eth.contract(abi);
-	CareerChain = Contract.at(contractAddress);
+	Contract_L = web3.eth.contract(abi);
+	CareerChain_L = Contract_L.at(contractAddress);
 	document.getElementById('contractAddr').innerHTML = getLink(contractAddress);
 	web3.eth.getAccounts(function(e,r)
 	{
@@ -194,7 +194,7 @@ function Signin()
 {
 	var id = document.getElementById('id').value;
 	var pwd = document.getElementById('pwd').value;
-	CareerChain.Sign_in(id, pwd, function(e,r)
+	CareerChain_L.Sign_in(id, pwd, function(e,r)
 	{
 		if(r)
 		{
