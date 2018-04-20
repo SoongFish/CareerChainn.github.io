@@ -198,7 +198,7 @@ function Signup()
 	var id = document.getElementById('id').value;
 	var pwd = document.getElementById('pwd').value;
 	var name = document.getElementById('name').value;
-	CareerChain.Sign_up(id, pwd, function(e,r)
+	CareerChain.Sign_up(id, pwd, name, function(e,r)
 	{
 		if (r)
 		{
