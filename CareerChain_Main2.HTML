@@ -205,7 +205,7 @@ function Getname()
 {
 	temp = location.href.split("?");
 	name = temp[1].split(":");
-	document.getElementById('user').value = name;
+	document.getElementById('user').value = decodeURIComponent(name);
 }
 Getname();
 </script>
