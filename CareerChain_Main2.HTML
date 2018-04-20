@@ -16,7 +16,7 @@
 		<input id = "user" type="text" readonly = "readonly" style="margin-right:14px">
 		<br><br>
 		<button onclick="Add_info()">Add Info</button>
-		<button onclick="Get_info()" style="margin-left:40px">Get Info</button>
+		<button onclick='location.href = "https://careerchainn.github.io/CareerChain_Get.HTML"' style="margin-left:40px">Get Info</button>
 		<div id="result"></div>
 	</ul>
 </body>
@@ -186,7 +186,7 @@ function getLink(addr)
 
 function Add_info()
 {
-	var writer = document.getElementById('user').Value;
+	var writer = document.getElementById('user').value;
 	location.href = "https://careerchainn.github.io/CareerChain_Add.HTML?" + encodeURIComponent(writer);
 }
 
