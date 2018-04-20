@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.3/milligram.min.css">
-  <title>CareerChain - Get Information</title>
-  <style>
-    body {text-align:center; margin-top:330px;}
-    #idnum {width: 200px; margin-left:10px; text-align:center;}
-	#name {width: 200px; margin-left:10px; text-align:center;}
-  </style>
+	<meta charset="UTF-8">
+	<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.3/milligram.min.css">
+	<title>CareerChain - Get Information</title>
+	<style>
+		body {text-align:center; margin-top:330px;}
+		#idnum {width: 200px; margin-left:10px; text-align:center;}
+		#name {width: 200px; margin-left:10px; text-align:center;}
+	</style>
 </head>
 <body style=background-image:url('https://careerchainn.github.io/BG.png')>
-<h2>CareerChain - Get Information</h2>
-<ul>
-  <br>
-  <li>Identification Number<input id="idnum" type="text"></li>
-  <li>Name<input id="name" type="text" style="margin-left:122px"></li>
-  <br>
-  <button onclick="getValue()" style="margin-left:70px">Search</button>
-  <button onclick="history.back()" style="margin-left:15px">Back</button>
-  <br>
-  <div id="result"></div>
-</ul>
-
+	<h2>CareerChain - Get Information</h2>
+	<ul>
+		<br>
+		<li>Identification Number<input id="idnum" type="text"></li>
+		<li>Name<input id="name" type="text" style="margin-left:122px"></li>
+		<br>
+		<button onclick="getValue()" style="margin-left:70px">Search</button>
+		<button onclick="history.back()" style="margin-left:15px">Back</button>
+		<br>
+		<div id="result"></div>
+	</ul>
 </body>
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
 <!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script -->
@@ -231,46 +230,46 @@ var CareerChain;
 
 window.addEventListener('load', function()
 {
-  // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-  if (typeof web3 !== 'undefined')
-  {
-    // Use Mist/MetaMask's provider
-    window.web3 = new Web3(web3.currentProvider);
-  } 
-  else 
-  {
-    console.log('No web3? You should consider trying MetaMask!')
-    // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-    window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-  }
-  // Now you can start your app & access web3 freely:
-  startApp();
+	// Checking if Web3 has been injected by the browser (Mist/MetaMask)
+	if (typeof web3 !== 'undefined')
+	{
+		// Use Mist/MetaMask's provider
+		window.web3 = new Web3(web3.currentProvider);
+	} 
+	else 
+	{
+		console.log('No web3? You should consider trying MetaMask!')
+		// fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+		window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+	}
+	// Now you can start your app & access web3 freely:
+	startApp();
 });
 
 function startApp()
 {
-  Contract = web3.eth.contract(abi);
-  CareerChain = Contract.at(contractAddress);
-  document.getElementById('contractAddr').innerHTML = getLink(contractAddress);
-  web3.eth.getAccounts(function(e,r)
-  {
-	document.getElementById('accountAddr').innerHTML = getLink(r[0]);
-  });
+	Contract = web3.eth.contract(abi);
+	CareerChain = Contract.at(contractAddress);
+	document.getElementById('contractAddr').innerHTML = getLink(contractAddress);
+	web3.eth.getAccounts(function(e,r)
+	{
+		document.getElementById('accountAddr').innerHTML = getLink(r[0]);
+	});
 }
 
 function getLink(addr)
 {
-  return '<a target="_blank" href=https://testnet.etherscan.io/address/' + addr + '>' + addr +'</a>';
+	return '<a target="_blank" href=https://testnet.etherscan.io/address/' + addr + '>' + addr +'</a>';
 }
 
 function getValue()
 {
-  var idnum = document.getElementById('idnum').value;
-  var name = document.getElementById('name').value;
-  CareerChain.Search(idnum, name, function(e,r)
-  {
-	document.getElementById('result').innerHTML = r;
-  });
+	var idnum = document.getElementById('idnum').value;
+	var name = document.getElementById('name').value;
+	CareerChain.Search(idnum, name, function(e,r)
+	{
+		document.getElementById('result').innerHTML = r;
+	});
 }
 
 </script>

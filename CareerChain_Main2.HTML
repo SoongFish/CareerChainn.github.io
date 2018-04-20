@@ -15,15 +15,15 @@
 	<ul>
 		<input id = "user" type="text" readonly = "readonly" style="margin-right:14px">
 		<br><br>
-		<button onclick="location.href='CareerChain_Add.HTML'">Add Info</button>
-		<button onclick="location.href='CareerChain_Get.HTML'" style="margin-left:40px">Get Info</button>
+		<button onclick="Add_info()">Add Info</button>
+		<button onclick="Get_info()" style="margin-left:40px">Get Info</button>
 		<div id="result"></div>
 	</ul>
 </body>
 
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
 <!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script -->
-<script charset="UTF-8">
+<script>
 var contractAddress = '0xc685a0807554b232123263b897d38bf03b039abb';
 var abi = 
 [
@@ -184,28 +184,17 @@ function getLink(addr)
 	return '<a target="_blank" href=https://testnet.etherscan.io/address/' + addr + '>' + addr +'</a>';
 }
 
-function Signin()
+function Add_info()
 {
-	var id = document.getElementById('id').value;
-	var pwd = document.getElementById('pwd').value;
-	CareerChain_L.Sign_in(id, pwd, function(e,r)
-	{
-		if(r)
-		{
-			window.open("https://careerchainn.github.io/CareerChain_Main2.HTML", '_self');
-		}
-		else
-		{
-			document.getElementById('result').innerHTML = 'Incorrect username or password.';
-		}
-	});
+	var writer = document.getElementById('user').Value;
+	location.href = "https://careerchainn.github.io/CareerChain_Add.HTML?" + encodeURIComponent(writer);
 }
 
 function Getname()
 {
 	temp = location.href.split("?");
-	name = temp[1].split(":");
-	document.getElementById('user').value = decodeURIComponent(name);
+	name2 = temp[1].split(":");
+	document.getElementById('user').value = decodeURIComponent(name2);
 }
 Getname();
 </script>
