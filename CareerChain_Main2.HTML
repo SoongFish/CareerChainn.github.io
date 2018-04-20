@@ -7,12 +7,14 @@
 	<title>CareerChain - Main</title>
 	<style>
 		body {text-align:center; margin-top:380px;}
+		#user {width: 200px; margin-left:10px; text-align:center;}
 	</style>
 </head>
 <body style=background-image:url('https://careerchainn.github.io/BG4.jpg')>
 	<h2>Welcome to CareerChain!</h2>
 	<ul>
-	<br>
+		<input id = "user" type="text" readonly = "readonly" style="margin-right:14px">
+		<br><br>
 		<button onclick="location.href='CareerChain_Add.HTML'">Add Info</button>
 		<button onclick="location.href='CareerChain_Get.HTML'" style="margin-left:40px">Get Info</button>
 		<div id="result"></div>
