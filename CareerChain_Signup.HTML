@@ -6,23 +6,26 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.3/milligram.min.css">
 	<title>CareerChain - Main</title>
 	<style>
-		body {text-align:center; margin-top:300px;}
+		body {text-align:center; margin-top:250px;}
 		#id {width: 200px; margin-left:10px; text-align:center;}
 		#pwd {width: 200px; margin-left:10px; text-align:center;}
+		#name {width: 200px; margin-left:10px; text-align:center;}
 	</style>
 </head>
 <!--<body style=background-image:url('https://careerchainn.github.io/BG.png')>-->
 <body>
-	<h2>Welcome to CareerChain!</h2>
+	<h2>Join CareerChain</h2>
 	<ul>
-		<label>Username</label>
+		<label>Username(ID)</label>
 		<input id = "id" type="text" style="margin-right:14px">
 		<label>Password</label>
 		<input id = "pwd" type="password" style="margin-right:10px">
+		<label>Name</label>
+		<input id = "name" type="text" style="margin-right:5px">
 		<br>
 		<br>
-		<button onclick="Signin()">Sign in</button>
-		<button onclick="location.href='CareerChain_Signup.HTML'" style="margin-left:40px">Sign up</button>
+		<button onclick="Signin()">Sign up</button>
+		<button onclick="location.href='CareerChain_Main.HTML'" style="margin-left:40px">Back</button>
 		<div id="result"></div>
 	</ul>
 </body>
@@ -190,19 +193,20 @@ function getLink(addr)
 	return '<a target="_blank" href=https://testnet.etherscan.io/address/' + addr + '>' + addr +'</a>';
 }
 
-function Signin()
+function Signup()
 {
 	var id = document.getElementById('id').value;
 	var pwd = document.getElementById('pwd').value;
-	CareerChain.Sign_in(id, pwd, function(e,r)
+	var name = document.getElementById('name').value;
+	CareerChain.Sign_up(id, pwd, function(e,r)
 	{
-		if(r)
+		if (r)
 		{
-			
+			document.getElementById('result').innerHTML = 'Thanks you for signing up! Transaction id : ' + r;
 		}
 		else
 		{
-			document.getElementById('result').innerHTML = 'Incorrect username or password.';
+			document.getElementById('result').innerHTML = 'Username(ID) is already taken.';
 		}
 	});
 }
