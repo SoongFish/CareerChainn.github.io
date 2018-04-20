@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.3/milligram.min.css">
   <title>CareerChain - Get Information</title>
   <style>
-    body {margin-left:45px; margin-top:30px;}
+    body {text-align:center; margin-top:330px;}
     #idnum {width: 200px; margin-left:10px; text-align:center;}
 	#name {width: 200px; margin-left:10px; text-align:center;}
   </style>
@@ -16,11 +16,10 @@
 <ul>
   <br>
   <li>Identification Number<input id="idnum" type="text"></li>
-  <li>Name<input id="name" type="text" style="margin-left:122px">
-  <button onclick='top.location="javascript:location.reload()"' style="margin-left:25px">Clear</button></li>
+  <li>Name<input id="name" type="text" style="margin-left:122px"></li>
   <br>
   <button onclick="getValue()" style="margin-left:70px">Search</button>
-  <button onclick="location.href='CareerChain_Main.HTML'" style="margin-left:15px">Back</button>
+  <button onclick="history.back()" style="margin-left:15px">Back</button>
   <br>
   <div id="result"></div>
 </ul>
