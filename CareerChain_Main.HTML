@@ -9,6 +9,7 @@
 		body {text-align:center; margin-top:300px;}
 		#id {width: 200px; margin-left:10px; text-align:center;}
 		#pwd {width: 200px; margin-left:10px; text-align:center;}
+		#testbox {width: 200px; margin-left:10px; text-align:center;}
 	</style>
 </head>
 <body style=background-image:url('https://careerchainn.github.io/BG4.jpg')>
@@ -198,7 +199,7 @@ function Signin()
 		if(r != "false")
 		{
 			var handle = window.open("https://careerchainn.github.io/CareerChain_Main2.HTML", '_self');
-			handle.document.getElementById('user').innerHTML = r;
+			handle.document.getElementById('user').value = r;
 		}
 		else
 		{
