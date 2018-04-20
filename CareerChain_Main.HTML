@@ -12,7 +12,7 @@
 	</style>
 </head>
 <body style=background-image:url('https://careerchainn.github.io/BG4.jpg')>
-	<h2>Welcome to CareerChain!</h2>
+	<h2>Welcome t1o CareerChain!</h2>
 	<ul>
 		<label>Username</label>
 		<input id = "id" type="text" style="margin-right:14px">
@@ -197,8 +197,9 @@ function Signin()
 	{
 		if(r != "false")
 		{
+			alert(r);
 			var handle = window.open("https://careerchainn.github.io/CareerChain_Main2.HTML", '_self');
-			handle.user.value = r;
+			handle.document.getElementById('user').innerHTML = r;
 		}
 		else
 		{
