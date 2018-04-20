@@ -14,7 +14,7 @@
 </head>
 <!--<body style=background-image:url('https://careerchainn.github.io/BG.png')>-->
 <body>
-	<h2>Join CareerChain2</h2>
+	<h2>Join CareerChain</h2>
 	<ul>
 		<label>Username(ID)</label>
 		<input id = "id" type="text" style="margin-right:14px">
@@ -196,6 +196,8 @@ function getLink(addr)
 function Check()
 {
 	var id = document.getElementById('id').value;
+	var pwd = document.getElementById('pwd').value;
+	var name = document.getElementById('name').value;
 	CareerChain.Id_duplication(id, function(e,r)
 	{
 		if (r)
@@ -204,25 +206,10 @@ function Check()
 		}
 		else
 		{
-			Signup();
-		}
-	}
-}
-
-function Signup()
-{
-	var id = document.getElementById('id').value;
-	var pwd = document.getElementById('pwd').value;
-	var name = document.getElementById('name').value;
-	CareerChain.Sign_up(id, pwd, name, function(e,r)
-	{
-		if (r)
-		{
-			document.getElementById('result').innerHTML = 'Thanks you for signing up! Transaction id : ' + r;
-		}
-		else
-		{
-			document.getElementById('result').innerHTML = 'Username(ID) is already taken.';
+			CareerChain.Sign_up(id, pwd, name, function(e,r)
+			{
+				document.getElementById('result').innerHTML = 'Thanks you for signing up! Transaction id : ' + r;
+			});
 		}
 	});
 }
