@@ -24,7 +24,7 @@
 		<input id = "name" type="text" style="margin-right:5px">
 		<br>
 		<br>
-		<button onclick="Signup()">Sign up</button>
+		<button onclick="Check()">Sign up</button>
 		<button onclick="location.href='CareerChain_Main.HTML'" style="margin-left:40px">Back</button>
 		<div id="result"></div>
 	</ul>
@@ -191,6 +191,22 @@ function startApp()
 function getLink(addr)
 {
 	return '<a target="_blank" href=https://testnet.etherscan.io/address/' + addr + '>' + addr +'</a>';
+}
+
+function Check()
+{
+	var id = document.getElementById('id').value;
+	CareerChain.Id_duplication(id, function(e,r)
+	{
+		if (r)
+		{
+			document.getElementById('result').innerHTML = 'Username(ID) is already taken.';
+		}
+		else
+		{
+			Singup();
+		}
+	}
 }
 
 function Signup()
