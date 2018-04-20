@@ -1,0 +1,73 @@
+<html>
+   <head>
+      <meta http-equiv = "Content-Type" content = "text/html; charset = UTF-8">
+   </head>   
+   <body>
+      <script language = 'Javascript'>
+         function   id_check() {
+            var id = document.comma.uid.value;
+
+            if (id.length < 5) {
+               window.alert('ID는 5글자 이상 입력해주세요');
+            }
+            else {
+               window.open('id_check.php?id=' + id, 'IDCHECK', 'width=450, height=180, scrollbars=yes');
+            }
+         }
+      </script>
+
+      <form action = './register.php' method = 'POST' name = 'comma'>
+      <table width = '670' border = '0' cellpadding = '0' cellspacing = '5'>
+         <tr>
+            <td height = '40' align = 'center'><b> [회원 가입] </b></td>
+         </tr>
+      </table>
+      <table border = '1' width = '670'>
+         <tr>
+            <td>
+               <table width = '670' border = '0' align = 'center'>
+                  <tr>
+                     <td width= '5%' align = 'right'> * </td>
+                     <td width = '15%' height = '30'><font size = '2'> 회원 ID </td>
+                     <td width = '80%'><input type = 'text' size = '10' name = 'uid'>
+                        <font size = '2'> [<a href='javascript:id_check()'> ID중복검사 </a>] </font></td>
+                  </tr>
+                   <tr>
+                     <td align = 'right'> * </td>
+                     <td height = '30'><font size = '2'>비밀번호</font></td>
+                     <td><input type = 'password' maxlength = '15' style = 'height:20;' size = '20' name = 'upass1'></td>
+                   </tr>
+                   <tr>
+                     <td align = 'right'> * </td>
+                     <td height = '30'><font size = '2'> 비밀번호확인 </font></td>
+                     <td><input type = 'password' maxlength = '15' style='height:20;' size = '20' name = 'upass2'></td>
+                   </tr>
+                   <tr>
+                     <td align = 'right'> * </td>
+                     <td height = '30'><font size = '2'>이 름</font></td>
+                     <td><input type = 'text' size = '10' name = 'uname'></td>
+                   </tr>
+                   <tr>
+                     <td align = 'right'> * </td>
+                     <td height = '30'><font size = '2'>휴대전화</font></td>
+                     <td><input type = 'text' size = '20' name = 'mphone'></td>
+                   </tr>
+                   <tr>
+                     <td align = 'right'> * </td>
+                     <td height = '30'><font size = '2'>이메일</td>
+                     <td><input type = 'text' size = '30' name = 'email'></td>
+                   </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+        
+      <table width = '670' border = '0' cellpadding = '0' cellspacing = '5'>
+         <tr>
+            <td height = '40' align = 'center'><input type = 'submit' value = '회원가입신청'></td>
+         </tr>
+      </table>
+
+      </form>
+   </body>
+</html>
