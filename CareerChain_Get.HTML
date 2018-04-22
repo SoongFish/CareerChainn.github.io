@@ -17,11 +17,12 @@
 		<br>
 		<li>Identification Number<input id="idnum" type="text"></li>
 		<li>Name<input id="name" type="text" style="margin-left:122px"></li>
-		<div id="blocks"></div>
+		<br>
 		<button onclick="getValue()" style="margin-left:5px">Search</button>
 		<button onclick="history.back()" style="margin-left:15px">Back</button>
 		<br>
 		<div id="result"></div>
+		<div id="blocks"></div>
 	</ul>
 </body>
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
@@ -285,14 +286,5 @@ function getValue()
 		document.getElementById('result').innerHTML = r;
 	});
 }
-
-function Blocks()
-{
-	CareerChain.Blockcount(function(e,r)
-	{
-		document.getElementById('blocks').innerHTML = 'Number of Blocks : ' + r;
-	});
-}
-Blocks();
 </script>
 </html>
