@@ -17,8 +17,8 @@
 		<br>
 		<li>Identification Number<input id="idnum" type="text"></li>
 		<li>Name<input id="name" type="text" style="margin-left:122px"></li>
-		<br>
-		<button onclick="getValue()" style="margin-left:70px">Search</button>
+		<div id="blocks"></div>
+		<button onclick="getValue()" style="margin-left:5px">Search</button>
 		<button onclick="history.back()" style="margin-left:15px">Back</button>
 		<br>
 		<div id="result"></div>
@@ -27,7 +27,7 @@
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
 <!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script -->
 <script>
-var contractAddress = '0x4f05c77c7ca892fc2fe48110f53d27b17cdf4528';
+var contractAddress = '0xcc41448d6b07420d1e780fc49c2afad59bc4d5df';
 var abi = 
 [
 	{
@@ -187,6 +187,20 @@ var abi =
 		"type": "function"
 	},
 	{
+		"constant": true,
+		"inputs": [],
+		"name": "Blockcount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"constant": false,
 		"inputs": [
 			{
@@ -272,5 +286,10 @@ function getValue()
 	});
 }
 
+function Blocks()
+{
+	document.getElementById('blocks').innerHTML = 'Number of Blocks : ' + CareerChain.Blockcount();
+}
+Blocks();
 </script>
 </html>
