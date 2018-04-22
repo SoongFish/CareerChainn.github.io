@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.3/milligram.min.css">
 	<title>CareerChain - Add Information</title>
 	<style>
-		body {text-align:center; margin-top:180px;}
+		body {text-align:center; margin-top:240px;}
 		#idnum {width: 200px; margin-left:10px; text-align:center;}
 		#name {width: 200px; margin-left:10px; text-align:center;}
 		#college {width: 200px; margin-left:10px; text-align:center;}
@@ -21,12 +21,12 @@
 	<ul>
 		<br>
 		<li>Identification Number<input id="idnum" type="text"></li>
-		<li>Name<input id="name" type="text" style="margin-left:122px"></li>
-		<li>College Name<input id="college" type="text" style="margin-left:62px"></li>
-		<li>GPA<input id="GPA" type="text" style="margin-left:132px"></li>
-		<li>Volunteer Hours<input id="volunteer" type="text" style="margin-left:48px"></li>
-		<li>Certificate<input id="certificate" type="text" style="margin-left:91px"></li>
-		<li>Writer<input id="writer" type="text" readonly="readonly" style="margin-left:122px"></li>
+		<li>Name<input id="name" type="text" style="margin-left:122px"></input></li>
+		<li>College Name<input id="college" type="text" style="margin-left:62px"></input></li>
+		<li>GPA<input id="GPA" type="text" style="margin-left:132px"></input></li>
+		<li>Volunteer Hours<input id="volunteer" type="text" style="margin-left:48px"></input></li>
+		<li>Certificate<input id="certificate" type="text" style="margin-left:91px"></input></li>
+		<li>Writer<input id="writer" type="text" readonly="readonly" style="margin-left:122px"></input></li>
 		<br>
 		<button onclick="setValue()" style="margin-left:5px">Save</button>
 		<button onclick="history.back()" style="margin-left:25px">Back</button>
@@ -35,7 +35,6 @@
 	</ul>
 </body>
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
-<!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script -->
 <script>
 var contractAddress = '0x0f08bdc629ef790a433bc6b00d678971e3f4e6c2';
 var abi = 

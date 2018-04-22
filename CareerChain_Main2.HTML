@@ -6,15 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.3/milligram.min.css">
 	<title>CareerChain - Main</title>
 	<style>
-		body {text-align:center; margin-top:380px;}
+		body {text-align:center; margin-top:450px;}
 		#user {width: 200px; margin-left:10px; text-align:center;}
 	</style>
 </head>
 <body style=background-image:url('https://careerchainn.github.io/BG4.jpg')>
 	<h2>Welcome to CareerChain!</h2>
 	<ul>
-		<input id = "user" type="text" readonly = "readonly" style="margin-right:14px">
-		<br><br>
+		<input id = "user" type="text" readonly = "readonly" style="margin-right:14px"></input>
+		<br>
+		<br>
 		<button onclick="Add_info()">Add Info</button>
 		<button onclick='location.href = "https://careerchainn.github.io/CareerChain_Get.HTML"' style="margin-left:40px">Get Info</button>
 		<div id="result"></div>
@@ -22,7 +23,6 @@
 </body>
 
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
-<!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script -->
 <script>
 var contractAddress = '0xc685a0807554b232123263b897d38bf03b039abb';
 var abi = 
@@ -190,12 +190,12 @@ function Add_info()
 	location.href = "https://careerchainn.github.io/CareerChain_Add.HTML?" + encodeURIComponent(writer);
 }
 
-function Getname()
+function Init()
 {
 	temp = location.href.split("?");
 	name2 = temp[1].split(":");
 	document.getElementById('user').value = decodeURIComponent(name2);
 }
-Getname();
+Init();
 </script>
 </html>

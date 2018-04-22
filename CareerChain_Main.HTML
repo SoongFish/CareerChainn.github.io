@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.3/milligram.min.css">
 	<title>CareerChain - Main</title>
 	<style>
-		body {text-align:center; margin-top:300px;}
+		body {text-align:center; margin-top:380px;}
 		#id {width: 200px; margin-left:10px; text-align:center;}
 		#pwd {width: 200px; margin-left:10px; text-align:center;}
 		#testbox {width: 200px; margin-left:10px; text-align:center;}
@@ -16,22 +16,21 @@
 	<h2>Welcome to CareerChain!</h2>
 	<ul>
 		<label>Username</label>
-		<input id = "id" type="text" style="margin-right:14px">
+		<input id = "id" type="text" style="margin-right:14px"></input>
 		<label>Password</label>
-		<input id = "pwd" type="password" style="margin-right:10px">
+		<input id = "pwd" type="password" style="margin-right:10px"></input>
 		<br>
 		<br>
 		<button onclick="Signin()">Sign in</button>
 		<button onclick="location.href='CareerChain_Signup.HTML'" style="margin-left:40px">Sign up</button>
 		<div id="result"></div>
 		<font color="BDBDBD">
-		<p style="margin-top:260px">Chrome extention - MetaMask 4.5.5 or higher is required.
-		<br>© 2018 CareerChain, CWNU</p>
+		<p style="margin-top:310px">Chrome extention - MetaMask 4.5.5 or higher is required.
+		<br>© 2018 CareerChain, CWNU</p></font>
 	</ul>
 </body>
 
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
-<!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script -->
 <script>
 var contractAddress = '0xc685a0807554b232123263b897d38bf03b039abb';
 var abi = 
