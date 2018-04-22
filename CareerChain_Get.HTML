@@ -288,7 +288,10 @@ function getValue()
 
 function Blocks()
 {
-	document.getElementById('blocks').innerHTML = 'Number of Blocks : ' + CareerChain.Blockcount();
+	CareerChain.Blockcount(function(e,r)
+	{
+		document.getElementById('blocks').innerHTML = 'Number of Blocks : ' + r;
+	}
 }
 Blocks();
 </script>
