@@ -36,9 +36,70 @@
 </body>
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
 <script>
-var contractAddress = '0x27796c4da0f1b55a35b9316881b8415e2396f7ff';
+var contractAddress = '0x77f6038906cbd5bde776ae4f2769bbec721c99a5';
 var abi = 
 [
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_idnum",
+				"type": "string"
+			},
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_college",
+				"type": "string"
+			},
+			{
+				"name": "_GPA",
+				"type": "string"
+			},
+			{
+				"name": "_volunteer",
+				"type": "string"
+			},
+			{
+				"name": "_certificate",
+				"type": "string"
+			},
+			{
+				"name": "_writer",
+				"type": "string"
+			}
+		],
+		"name": "Add_info",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_a",
+				"type": "string"
+			},
+			{
+				"name": "_b",
+				"type": "string"
+			}
+		],
+		"name": "CompareStrings",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "pure",
+		"type": "function"
+	},
 	{
 		"constant": true,
 		"inputs": [
@@ -131,6 +192,20 @@ var abi =
 	},
 	{
 		"constant": true,
+		"inputs": [],
+		"name": "Blockcount",
+		"outputs": [
+			{
+				"name": "count",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
 		"inputs": [
 			{
 				"name": "_order",
@@ -170,81 +245,6 @@ var abi =
 		],
 		"payable": false,
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_a",
-				"type": "string"
-			},
-			{
-				"name": "_b",
-				"type": "string"
-			}
-		],
-		"name": "CompareStrings",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "pure",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "Blockcount",
-		"outputs": [
-			{
-				"name": "count",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_idnum",
-				"type": "string"
-			},
-			{
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"name": "_college",
-				"type": "string"
-			},
-			{
-				"name": "_GPA",
-				"type": "string"
-			},
-			{
-				"name": "_volunteer",
-				"type": "string"
-			},
-			{
-				"name": "_certificate",
-				"type": "string"
-			},
-			{
-				"name": "_writer",
-				"type": "string"
-			}
-		],
-		"name": "Add_info",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ];
