@@ -282,7 +282,7 @@ function getValue()
 	var name = document.getElementById('name').value;
 	CareerChain.Search(idnum, name, function(e,r)
 	{
-		document.getElementById('result').innerHTML = r[0];
+		document.getElementById('result').innerHTML = "학번 : " + r[0] + "<br>이름 : " + r[1];
 	});
 }
 </script>
