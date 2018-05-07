@@ -15,7 +15,7 @@
 	<h2>Get Information</h2>
 	<ul>
 		<br>
-		<li>Identification Number<input id="idnum" type="text"></input></li>
+		<li>Identification Number1<input id="idnum" type="text"></input></li>
 		<li>Name<input id="name" type="text" style="margin-left:122px"></input></li>
 		<br>
 		<button onclick="getValue()" style="margin-left:5px">Search</button>
@@ -282,7 +282,7 @@ function getValue()
 	var name = document.getElementById('name').value;
 	CareerChain.Search(idnum, name, function(e,r)
 	{
-		document.getElementById('result').innerHTML = r.replace(/([^,\s]+)/g, '\n');
+		document.getElementById('result').innerHTML = r.replace(/,/g, "<br>");
 	});
 }
 </script>
