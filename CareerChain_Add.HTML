@@ -293,10 +293,17 @@ function check() // 블록체인에 이미 있으면 채우기
 	
 	CareerChain.Search(idnum, name, function(e,r)
 	{
-		document.getElementById('college').value = r[2];
-		document.getElementById('GPA').value = r[3];
-		document.getElementById('volunteer').value = r[4];
-		certificate = document.getElementById('certificate').value = r[5];
+		if (r[0] == "")
+		{
+			alert("No matched information!");
+		}
+		else
+		{
+			document.getElementById('college').value = r[2];
+			document.getElementById('GPA').value = r[3];
+			document.getElementById('volunteer').value = r[4];
+			certificate = document.getElementById('certificate').value = r[5];
+		}
 	});
 }
 
