@@ -282,7 +282,7 @@ function getValue()
 	var name = document.getElementById('name').value;
 	CareerChain.Search(idnum, name, function(e,r)
 	{
-		document.getElementById('result').innerHTML = r;
+		document.getElementById('result').innerHTML = r.replace(/([^,\s]+)/g, '\n');
 	});
 }
 </script>
