@@ -306,8 +306,8 @@ function setValue()
 
 function Init()
 {
-	temp = location.href.split("?");
-	name2 = temp[1].split(":");
+	var temp = location.href.split("?");
+	var name2 = temp[1].split(":");
 	document.getElementById('writer').value = decodeURIComponent(name2);
 }
 Init();
