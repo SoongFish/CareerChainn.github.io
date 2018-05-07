@@ -282,14 +282,7 @@ function getValue()
 	var name = document.getElementById('name').value;
 	CareerChain.Search(idnum, name, function(e,r)
 	{
-		if(r[0] == NULL)
-		{
-			document.getElementById('result').innerHTML = "No matched information!";
-		}
-		else
-		{
 			document.getElementById('result').innerHTML = "<br>학번 : " + r[0] + "<br>이름 : " + r[1] + "<br>대학 : " + r[2] + "<br>학점 : " + r[3] + "<br>봉사시간 : " + r[4] + "<br>자격정보 : " + r[5] + "<br>작성자 : " + r[6];
-		}
 	});
 }
 </script>
