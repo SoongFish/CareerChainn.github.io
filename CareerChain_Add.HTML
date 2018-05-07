@@ -21,7 +21,8 @@
 	<ul>
 		<br>
 		<li>Identification Number<input id="idnum" type="text"></li>
-		<li>Name<input id="name" type="text" style="margin-left:122px"></input></li>
+		<li style="margin-left:104px">Name<input id="name" type="text" style="margin-left:122px"></input>
+		<button onclick="check()" style="margin-left:10px">Fill</button></li>
 		<li>College Name<input id="college" type="text" style="margin-left:62px"></input></li>
 		<li>GPA<input id="GPA" type="text" style="margin-left:132px"></input></li>
 		<li>Volunteer Hours<input id="volunteer" type="text" style="margin-left:48px"></input></li>
@@ -283,6 +284,20 @@ function startApp()
 function getLink(addr)
 {
 	return '<a target="_blank" href=https://testnet.etherscan.io/address/' + addr + '>' + addr +'</a>';
+}
+
+function check() // 블록체인에 이미 있으면 채우기
+{
+	var idnum = document.getElementById('idnum').value;
+	var name = document.getElementById('name').value;
+	
+	CareerChain.Search(idnum, name, function(e,r)
+	{
+		document.getElementById('college').value = r[2];
+		document.getElementById('GPA').value = r[3];
+		document.getElementById('volunteer').value = r[4];
+		certificate = document.getElementById('certificate').value = r[5];
+	});
 }
 
 function setValue()
