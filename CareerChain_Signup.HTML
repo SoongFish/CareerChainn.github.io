@@ -31,7 +31,7 @@
 
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
 <script>
-var contractAddress = '0xc685a0807554b232123263b897d38bf03b039abb';
+var contractAddress = '0x1f3c2dc303906cbae6941e7f3d2cd8bc4040fd97';
 var abi = 
 [
 	{
@@ -46,11 +46,11 @@ var abi =
 		"outputs": [
 			{
 				"name": "id",
-				"type": "string"
+				"type": "bytes32"
 			},
 			{
 				"name": "pwd",
-				"type": "string"
+				"type": "bytes32"
 			},
 			{
 				"name": "name",
@@ -89,7 +89,7 @@ var abi =
 		"inputs": [
 			{
 				"name": "_id",
-				"type": "string"
+				"type": "bytes32"
 			}
 		],
 		"name": "Id_duplication",
@@ -108,11 +108,11 @@ var abi =
 		"inputs": [
 			{
 				"name": "_a",
-				"type": "string"
+				"type": "bytes32"
 			},
 			{
 				"name": "_b",
-				"type": "string"
+				"type": "bytes32"
 			}
 		],
 		"name": "CompareStrings",
