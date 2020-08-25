@@ -4,7 +4,7 @@ contract CareerChain
 {
     struct info
     {
-        string idnum; // identification number
+        string idnum; // identification numberr
         string name; // name of user
         string college; // name of college
         string GPA; // GPA
